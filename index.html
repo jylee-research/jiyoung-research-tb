@@ -102,6 +102,18 @@ figure.viz figcaption{font-size:14px;color:var(--sub);margin-top:14px;line-heigh
   .journey{grid-template-columns:1fr}
   .chain .arr{display:none}
 }
+figure.viz.wide{margin-top:0;padding:24px}
+.shots{display:grid;grid-template-columns:240px 1fr;gap:28px;align-items:center;margin-bottom:20px}
+.shot-text h3{font-size:19px}
+.shot-text p{font-size:15px;margin-top:8px}
+.shot-text ul{font-size:15px;padding-left:18px;margin-top:8px}
+.shot-text li + li{margin-top:2px}
+.phone{border:8px solid #191f28;border-radius:28px;overflow:hidden;background:#f4f6fa}
+.phone img{display:block;width:100%;height:auto}
+.flowimg{display:block;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.flowimg img{display:block;width:100%;height:auto}
+.shot-cap{font-size:13px;color:var(--sub);margin-top:8px;line-height:1.5}
+@media (max-width:640px){.shots{grid-template-columns:1fr}.phone{max-width:240px;margin:0 auto}}
 footer{border-top:1px solid var(--line);padding:40px 0 64px;font-size:14px;color:var(--sub)}
 footer p + p{margin-top:6px}
 footer .contact{font-size:16px;color:var(--head);margin-bottom:16px}
@@ -170,7 +182,27 @@ footer .contact{font-size:16px;color:var(--head);margin-bottom:16px}
             <div class="node"><b>가드레일</b>설문 미참여율, 즉시 이탈률</div>
           </div>
           <figcaption>리서치에서 찾은 '불안'을 측정할 수 있는 한 가지 개입과 지표로 좁혔어요.</figcaption>
-        </figure></div></div>
+        </figure>
+        </div></div>
+      <figure class="viz wide" aria-label="실제 배포된 시작 팝업 화면과 설문 흐름">
+        <p class="viz-title">실제로 배포된 화면과 설문 흐름</p>
+        <div class="shots">
+          <div class="phone"><img src="img/banner_popup.webp" width="462" height="820" alt="대출 조회 전, 확인하고 싶은 정보가 있으신가요? 라고 묻는 시작 팝업과 확인해보기 버튼" loading="lazy"></div>
+          <div class="shot-text">
+            <h3>떠나려는 순간, 먼저 묻기</h3>
+            <p>대출 비교 화면에서 뒤로 가려는 사용자에게 "대출 조회 전, 확인하고 싶은 정보가 있으신가요?"라고 먼저 물어요.</p>
+            <ul>
+              <li>다른 곳에서 조회해 봤는지</li>
+              <li>그 결과가 어땠는지</li>
+              <li>무엇이 가장 궁금한지</li>
+            </ul>
+            <p>답에 맞춰 필요한 안내를 보여 주고, 다시 대출 조회로 돌아올 수 있게 했어요.</p>
+            <p class="shot-cap">휴대폰 화면은 실제 배포 화면이에요. 고객 이름은 가렸어요.</p>
+          </div>
+        </div>
+        <a class="flowimg" href="img/survey_flow.webp" target="_blank" rel="noopener"><img src="img/survey_flow.webp" width="1600" height="478" alt="시작 팝업에서 다른 곳 조회 경험, 조회 결과, 확인하고 싶은 정보를 차례로 묻고 맞춤 안내로 이어지는 설문 흐름" loading="lazy"></a>
+        <figcaption>설문 흐름 설계 화면이에요. 누르면 크게 볼 수 있어요. 모두 재직 중인 회사에서 실제로 배포한 화면과 설계 화면이에요.</figcaption>
+      </figure>
       <div class="step"><div class="k">결과</div><div><ul><li>목표 지표 <strong>+15% lift 달성</strong></li><li>설문 완료율 51.7%, 설문 결과를 본 사용자의 61.4%가 대출 조회로, 그중 72.2%가 한도 조회로 이어졌어요.</li><li>경진대회 기획안이 이탈 리서치를 거쳐 실제 제품 변경으로 반영됐어요.</li></ul>
         <figure class="viz" aria-label="설문 배너 이후 단계별 전환율">
           <p class="viz-title">배너 이후 단계별 전환율 (앞 단계 대비)</p>
@@ -259,7 +291,7 @@ footer .contact{font-size:16px;color:var(--head);margin-bottom:16px}
   <div class="wrap">
     <p class="contact">연락처 · <a href="mailto:eeg.young3@gmail.com">eeg.young3@gmail.com</a></p>
     <p>이 페이지는 토스뱅크 UX Researcher 지원을 위해 지원자 이지영이 직접 만들었어요. 토스뱅크의 공식 페이지가 아니에요.</p>
-    <p>토스뱅크에 대한 내용은 공개된 채용 공고를 바탕으로 한 가설이에요. 이전 회사의 수치는 비율과 변화율만 담았고, 파트너사 이름은 적지 않았어요.</p>
+    <p>토스뱅크에 대한 내용은 공개된 채용 공고를 바탕으로 한 가설이에요. 재직 중인 회사의 수치는 비율과 변화율만 담았고, 파트너사 이름은 적지 않았어요.</p>
   </div>
 </footer>
 </body>
