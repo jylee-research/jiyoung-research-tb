@@ -62,6 +62,46 @@ h3{color:var(--head);font-size:20px;font-weight:700;margin-bottom:6px}
 .note{margin-top:16px;font-size:14px;color:var(--sub)}
 .how{margin-top:24px;display:grid;gap:12px}
 .how .card h3{font-size:18px}
+/* 도식 */
+figure.viz{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}
+figure.viz figcaption{font-size:14px;color:var(--sub);margin-top:14px;line-height:1.5}
+.viz-title{font-size:15px;font-weight:700;color:var(--head);margin-bottom:14px}
+.meter{display:grid;grid-template-columns:1fr 64px;gap:4px 12px;align-items:center}
+.meter + .meter{margin-top:14px}
+.meter .lbl{grid-column:1/-1;font-size:14px;color:var(--body)}
+.meter .track{height:12px;background:var(--chip);border-radius:6px;overflow:hidden}
+.meter .fill{height:100%;background:var(--blue);border-radius:6px}
+.meter .val{font-size:15px;font-weight:700;color:var(--ink);text-align:right}
+.chain{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap}
+.chain .node{flex:1 1 140px;background:var(--surface);border-radius:12px;padding:12px 14px;font-size:14px;color:var(--head)}
+.chain .node b{display:block;font-size:12px;color:var(--sub);font-weight:600;margin-bottom:2px}
+.chain .node.hl{background:var(--blue-soft)}
+.chain .node.hl b{color:var(--blue)}
+.chain .arr{display:flex;align-items:center;color:var(--sub);font-size:18px}
+.rate{font-size:20px;font-weight:700;color:var(--blue);display:block;margin-top:2px}
+.design{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.design .node{background:var(--surface);border-radius:12px;padding:12px 14px;font-size:14px;color:var(--head);line-height:1.5}
+.design .node b{display:block;font-size:12px;color:var(--blue);margin-bottom:4px}
+.design .node.ok{background:var(--blue-soft)}
+.journey{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.journey .col{background:var(--surface);border-radius:12px;padding:14px}
+.journey .stage{font-size:13px;font-weight:700;color:var(--blue)}
+.journey .dir{font-size:15px;font-weight:700;color:var(--ink);margin:2px 0 10px}
+.journey .pain{font-size:14px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 10px;color:var(--head)}
+.journey .pain + .pain{margin-top:6px}
+.journey .act{display:block;margin-top:6px;font-size:12px;font-weight:600;color:var(--blue)}
+.bars{display:flex;align-items:flex-end;gap:20px;height:160px;padding:0 4px;border-bottom:1px solid var(--line)}
+.bars .bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.bars .col{width:100%;max-width:72px;background:var(--blue);border-radius:4px 4px 0 0;opacity:.35}
+.bars .bar.last .col{opacity:1}
+.bars .v{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.bars-x{display:flex;gap:20px;padding:6px 4px 0}
+.bars-x span{flex:1;text-align:center;font-size:13px;color:var(--sub)}
+@media (max-width:640px){
+  .design{grid-template-columns:1fr 1fr}
+  .journey{grid-template-columns:1fr}
+  .chain .arr{display:none}
+}
 footer{border-top:1px solid var(--line);padding:40px 0 64px;font-size:14px;color:var(--sub)}
 footer p + p{margin-top:6px}
 footer .contact{font-size:16px;color:var(--head);margin-bottom:16px}
@@ -112,9 +152,37 @@ footer .contact{font-size:16px;color:var(--head);margin-bottom:16px}
     <div class="case-meta"><span class="chip">핀다 · 2026</span><span class="chip">퍼널 분석</span><span class="chip">이탈자 설문·리서치</span><span class="chip">실험 설계·배포</span><span class="chip">기획부터 데이터 정리까지 단독</span></div>
     <div class="steps">
       <div class="step"><div class="k">문제 정의</div><div><p>대출 비교 서비스의 첫 화면에서 대규모 이탈이 생기고 있었어요. 회사의 핵심 목표인 한도 조회 수와 바로 이어지는 문제였어요.</p><p>먼저 퍼널과 세그먼트 데이터로 <strong>어느 구간에서, 누가</strong> 떠나는지 좁혔어요. 이 분석으로 만든 개선 기획안은 사내 프로덕트 경진대회에서 1위를 했어요. 다만 기획안을 실제 제품에 넣으려면, 데이터가 말해 주지 않는 '왜'가 필요했어요.</p></div></div>
-      <div class="step"><div class="k">가설</div><div><p>그래서 5월에 이탈 사용자 리서치를 직접 설계하고 진행했어요.</p><ul><li>이탈 장벽 1위는 '기대한 조건보다 낮을 것 같다'(35.7%)였고, 응답자의 53.3%가 불신·불안을 이유로 들었어요.</li><li>이탈 후에도 48.5%는 다른 곳에서 조회를 이어 갔어요. 대출이 필요 없어진 게 아니라 <strong>여기서 확인하기가 불안했던 것</strong>이에요.</li></ul><p><strong>가설:</strong> 떠나려는 순간에 불안을 덜어 주는 정보를 먼저 보여 주면, 한도 조회로 넘어가는 사람이 늘어난다.</p></div></div>
-      <div class="step"><div class="k">설계와 검증</div><div><ul><li>리서치 결과를 첫 화면의 뒤로가기 행동 데이터와 연결해, 이탈 직전 사용자에게 정보를 주는 설문 배너를 띄우는 실험을 설계했어요.</li><li>목표 지표는 '7일 안에 한도 조회 버튼을 누르는 비율'의 상대 lift +15%로, 가드레일은 설문 미참여율과 즉시 이탈률로 정했어요.</li><li>설계 문서를 제품 회의에 올리고 앱 배포까지 직접 이끌었어요.</li></ul></div></div>
-      <div class="step"><div class="k">결과</div><div><ul><li>목표 지표 <strong>+15% lift 달성</strong></li><li>설문 완료율 51.7%, 설문 결과를 본 사용자의 61.4%가 대출 조회로, 그중 72.2%가 한도 조회로 이어졌어요.</li><li>경진대회 기획안이 이탈 리서치를 거쳐 실제 제품 변경으로 반영됐어요.</li></ul></div></div>
+      <div class="step"><div class="k">가설</div><div><p>그래서 5월에 이탈 사용자 리서치를 직접 설계하고 진행했어요.</p><ul><li>이탈 장벽 1위는 '기대한 조건보다 낮을 것 같다'(35.7%)였고, 응답자의 53.3%가 불신·불안을 이유로 들었어요.</li><li>이탈 후에도 48.5%는 다른 곳에서 조회를 이어 갔어요. 대출이 필요 없어진 게 아니라 <strong>여기서 확인하기가 불안했던 것</strong>이에요.</li></ul><p><strong>가설:</strong> 떠나려는 순간에 불안을 덜어 주는 정보를 먼저 보여 주면, 한도 조회로 넘어가는 사람이 늘어난다.</p>
+        <figure class="viz" aria-label="이탈 사용자 리서치에서 나온 세 가지 비율">
+          <p class="viz-title">이탈 사용자 리서치에서 본 세 가지 숫자</p>
+          <div class="meter" title="이탈 장벽 1위: 조건 기대 저하 35.7%"><span class="lbl">이탈 장벽 1위 '기대한 조건보다 낮을 것 같다'</span><div class="track"><div class="fill" style="width:35.7%"></div></div><span class="val">35.7%</span></div>
+          <div class="meter" title="불신·불안을 이유로 든 응답 53.3%"><span class="lbl">불신·불안을 이유로 든 응답</span><div class="track"><div class="fill" style="width:53.3%"></div></div><span class="val">53.3%</span></div>
+          <div class="meter" title="이탈 후 다른 곳에서 조회를 이어 간 비율 48.5%"><span class="lbl">이탈 후에도 다른 곳에서 조회를 이어 간 사람</span><div class="track"><div class="fill" style="width:48.5%"></div></div><span class="val">48.5%</span></div>
+          <figcaption>세 숫자는 서로 다른 문항이에요. 대출이 필요 없어진 게 아니라, 여기서 확인하기가 불안했다는 쪽을 가리켜요.</figcaption>
+        </figure></div></div>
+      <div class="step"><div class="k">설계와 검증</div><div><ul><li>리서치 결과를 첫 화면의 뒤로가기 행동 데이터와 연결해, 이탈 직전 사용자에게 정보를 주는 설문 배너를 띄우는 실험을 설계했어요.</li><li>목표 지표는 '7일 안에 한도 조회 버튼을 누르는 비율'의 상대 lift +15%로, 가드레일은 설문 미참여율과 즉시 이탈률로 정했어요.</li><li>설계 문서를 제품 회의에 올리고 앱 배포까지 직접 이끌었어요.</li></ul>
+        <figure class="viz" aria-label="실험 설계: 가설, 개입, 목표 지표, 가드레일">
+          <p class="viz-title">실험 설계 한 장 요약</p>
+          <div class="design">
+            <div class="node"><b>가설</b>불안을 덜어 주는 정보를 먼저 보여 주면 다음 단계로 넘어간다</div>
+            <div class="node"><b>개입</b>뒤로가기 직전 사용자에게 정보 제공형 설문 배너</div>
+            <div class="node"><b>목표 지표</b>7일 안에 한도 조회 버튼을 누르는 비율, 상대 lift +15%</div>
+            <div class="node"><b>가드레일</b>설문 미참여율, 즉시 이탈률</div>
+          </div>
+          <figcaption>리서치에서 찾은 '불안'을 측정할 수 있는 한 가지 개입과 지표로 좁혔어요.</figcaption>
+        </figure></div></div>
+      <div class="step"><div class="k">결과</div><div><ul><li>목표 지표 <strong>+15% lift 달성</strong></li><li>설문 완료율 51.7%, 설문 결과를 본 사용자의 61.4%가 대출 조회로, 그중 72.2%가 한도 조회로 이어졌어요.</li><li>경진대회 기획안이 이탈 리서치를 거쳐 실제 제품 변경으로 반영됐어요.</li></ul>
+        <figure class="viz" aria-label="설문 배너 이후 단계별 전환율">
+          <p class="viz-title">배너 이후 단계별 전환율 (앞 단계 대비)</p>
+          <div class="chain">
+            <div class="node" title="배너를 누른 사용자 중 설문 완료 51.7%"><b>설문 완료</b>배너를 누른 사람 중<span class="rate">51.7%</span></div>
+            <span class="arr" aria-hidden="true">→</span>
+            <div class="node" title="설문 결과를 본 사용자 중 대출 조회 61.4%"><b>대출 조회</b>결과를 본 사람 중<span class="rate">61.4%</span></div>
+            <span class="arr" aria-hidden="true">→</span>
+            <div class="node hl" title="대출 조회 중 한도 조회 72.2%"><b>한도 조회</b>대출 조회한 사람 중<span class="rate">72.2%</span></div>
+          </div>
+          <figcaption>각 숫자는 바로 앞 단계를 기준으로 한 비율이에요. 목표 지표(+15% lift)는 달성했어요.</figcaption>
+        </figure></div></div>
       <div class="step"><div class="k">배운 점</div><div><p>상반기에 '문제를 완벽히 증명하기보다 가설을 빠르게 던져 보라'는 피드백을 받았어요. 이 실험은 그 피드백을 실행으로 옮긴 첫 사례예요. 리서치가 충분히 단단해질 때까지 기다리지 않고, <strong>검증할 수 있는 크기의 가설로 잘라 먼저 띄우는 것</strong>이 결과적으로 더 빨리 더 많이 배우는 길이라는 걸 확인했어요.</p></div></div>
     </div>
   </section>
@@ -127,7 +195,26 @@ footer .contact{font-size:16px;color:var(--head);margin-bottom:16px}
       <div class="step"><div class="k">문제 정의</div><div><p>제휴 대출 상품의 조회는 늘었지만, 신청한 사람이 실제 대출까지 가는 비율이 다른 업권의 절반 수준까지 떨어져 최종 계약 수가 그대로였어요. 사업팀이 "신청 이후 고객이 어떤 경험을 하는지" 알고 싶다고 요청했어요.</p></div></div>
       <div class="step"><div class="k">가설</div><div><p>인터뷰부터 하지 않고, 출시 이후 쌓인 파트너사별 VOC를 <strong>전수 분석</strong>해 범위를 먼저 좁혔어요. 고객 경험을 해치는 파트너사를 추려 보니, 눈에 띈 불만은 '처음 안내받은 한도와 최종 심사 결과가 다르다'는 것이었어요.</p><p><strong>가설:</strong> 이탈의 중심에는 가승인과 최종 심사 사이의 괴리, 그리고 그 사이에 아무것도 보이지 않는 기다림이 있다.</p></div></div>
       <div class="step"><div class="k">설계와 검증</div><div><ul><li>본 인터뷰 전에 계약 경험자와 거절 경험자를 한 명씩 먼저 만나 질문지를 다듬었어요.</li><li>만족도 조사에서 인터뷰에 동의한 사용자 중 신청 이력이 있는 사람을 모았고, 모수가 부족하자 모집 기간을 6개월로 넓혔어요.</li><li>유선 심층 인터뷰 6명을 진행하고, 신청부터 최종 결과 확인까지 여정 단계별로 정리했어요.</li></ul></div></div>
-      <div class="step"><div class="k">결과</div><div><p>심사 전·중·후에 걸친 핵심 문제 4가지를 정리했어요.</p><ul><li>가승인과 최종 심사의 괴리가 신뢰를 무너뜨린다</li><li>예측하지 못한 추가 심사가 피로감을 높인다</li><li>보이지 않는 진행 상태가 이탈을 부른다</li><li>모두 거절된 고객에게 다음 행동이 없다</li></ul><p>공유로 끝내지 않았어요. 후속 VOC 분석에서 심사 괴리 불만의 약 70%가 한 파트너사에 몰려 있다는 걸 찾아 사업팀에 전달했고, 사업팀이 그 파트너사와 협의해 <strong>가승인 한도를 조정</strong>했어요. 진행 상태 문제는 인증 완료 화면에 '접수가 완료되었다'는 안내를 넣는 것으로 이어졌어요. 그 파트너사의 VOC는 7월에서 9월 사이 <strong>66% 줄었어요</strong>. 이 리서치는 전사 발표에서 우수 사례로 소개됐어요.</p></div></div>
+      <div class="step"><div class="k">결과</div><div><p>심사 전·중·후에 걸친 핵심 문제 4가지와 단계별 개선 방향을 정리했어요.</p>
+        <figure class="viz" aria-label="심사 전, 중, 후 여정별 핵심 문제와 개선 방향">
+          <p class="viz-title">대출 심사 여정에서 찾은 문제와 방향</p>
+          <div class="journey">
+            <div class="col"><span class="stage">심사 전</span><p class="dir">기대를 조정해요</p><div class="pain">가승인과 최종 심사의 괴리가 신뢰를 무너뜨려요<span class="act">→ 가승인 한도 조정으로 이어짐</span></div></div>
+            <div class="col"><span class="stage">심사 중</span><p class="dir">기다림을 관리해요</p><div class="pain">예측하지 못한 추가 심사가 피로감을 높여요</div><div class="pain">보이지 않는 진행 상태가 이탈을 불러요<span class="act">→ '접수 완료' 안내 추가로 이어짐</span></div></div>
+            <div class="col"><span class="stage">심사 후</span><p class="dir">대안을 고르게 도와요</p><div class="pain">모두 거절된 고객에게 다음 행동이 없어요</div></div>
+          </div>
+          <figcaption>파란 글씨는 실제 조치로 이어진 문제예요. 나머지 두 가지는 제품팀과 이어서 다룰 과제예요.</figcaption>
+        </figure><p>공유로 끝내지 않았어요. 후속 VOC 분석에서 심사 괴리 불만의 약 70%가 한 파트너사에 몰려 있다는 걸 찾아 사업팀에 전달했고, 사업팀이 그 파트너사와 협의해 <strong>가승인 한도를 조정</strong>했어요. 진행 상태 문제는 인증 완료 화면에 '접수가 완료되었다'는 안내를 넣는 것으로 이어졌어요. 그 파트너사의 VOC는 7월에서 9월 사이 <strong>66% 줄었어요</strong>. 이 리서치는 전사 발표에서 우수 사례로 소개됐어요.</p>
+        <figure class="viz" aria-label="문제가 몰린 파트너사의 VOC 변화, 7월을 100으로 둔 지수">
+          <p class="viz-title">원인이 몰린 파트너사의 VOC (7월 = 100)</p>
+          <div class="bars">
+            <div class="bar" title="7월 100"><span class="v">100</span><div class="col" style="height:100%"></div></div>
+            <div class="bar" title="8월 41"><span class="v">41</span><div class="col" style="height:41%"></div></div>
+            <div class="bar last" title="9월 34, 7월 대비 -66%"><span class="v">34 (-66%)</span><div class="col" style="height:34%"></div></div>
+          </div>
+          <div class="bars-x"><span>7월</span><span>8월</span><span>9월</span></div>
+          <figcaption>건수 대신 7월을 100으로 둔 지수로 표시했어요. 10월은 상품 점검 기간이 섞여 있어 넣지 않았어요.</figcaption>
+        </figure></div></div>
       <div class="step"><div class="k">배운 점</div><div><p>그 뒤로도 실행률은 올라가지 않았어요. 연말에는 한도가 잘 나오지 않는 시기라 외부 요인의 영향이 컸다고 보고 있어요. 그래서 실행률처럼 바깥 영향을 크게 받는 지표만 보지 않고, 고객 경험을 직접 보여 주는 <strong>VOC를 선행 지표로 함께 두는 것</strong>이 중요하다는 걸 배웠어요. 남은 문제 두 가지(추가 심사 예측, 거절 고객의 다음 행동)는 제품팀과 이어서 다룰 예정이에요.</p></div></div>
     </div>
     <p class="quote">심사 전에는 기대를 조정하고, 심사 중에는 기다림을 관리하고, 심사 후에는 대안을 고를 수 있게 돕는다.</p>
